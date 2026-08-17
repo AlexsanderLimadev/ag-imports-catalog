@@ -9,9 +9,9 @@ export function ProductImage({
   className,
 }: {
   product: Product;
-  src?: string;
-  priority?: boolean;
-  className?: string;
+  src?: string | undefined;
+  priority?: boolean | undefined;
+  className?: string | undefined;
 }) {
   const source = src ?? product.images[0];
   const [broken, setBroken] = useState(false);
