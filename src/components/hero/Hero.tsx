@@ -5,7 +5,7 @@ import { ActionLink } from "@/components/ui/ActionLink";
 export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
-      <Container className="grid min-h-[calc(100svh-4rem)] items-center gap-10 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-0">
+      <Container className="grid min-h-[min(calc(100svh-4rem),44rem)] items-center gap-10 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-20">
         <div className="reveal min-w-0">
           <p className="label-xs text-muted-foreground">AG Imports</p>
           <h1 className="text-editorial mt-6 text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">
