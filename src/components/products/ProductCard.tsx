@@ -14,7 +14,7 @@ export function ProductCard({ product, priority }: { product: Product; priority?
       <div className="relative overflow-hidden bg-surface">
         <ProductImage
           product={product}
-          priority={priority}
+          priority={!!priority}
           className="p-4 transition-transform duration-500 ease-out group-hover:scale-[1.03] sm:p-6"
         />
 
