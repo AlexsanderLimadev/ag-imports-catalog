@@ -39,7 +39,6 @@ const placeholderBase = {
   images: [] as string[],
   available: true,
   placeholder: true,
-  description: undefined,
 } satisfies Partial<Product>;
 
 export const products: Product[] = [
