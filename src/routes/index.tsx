@@ -1,24 +1,66 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "@/components/hero/Hero";
+import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { CategoryGrid } from "@/components/categories/CategoryGrid";
+import { FeaturedProducts } from "@/components/sections/FeaturedProducts";
+import { NewProducts } from "@/components/sections/NewProducts";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { TrustSection } from "@/components/sections/TrustSection";
+import { InstagramSection } from "@/components/sections/InstagramSection";
+import { CtaSection } from "@/components/sections/CtaSection";
+import { STORE_NAME } from "@/lib/constants";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "AG Imports | Catálogo de Importados Premium";
+const description =
+  "Catálogo premium da AG Imports: produtos importados selecionados. Fale direto com a loja pelo WhatsApp.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Store",
+          name: STORE_NAME,
+          description,
+        }),
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Hero />
+
+      <section className="py-20 md:py-32">
+        <Container>
+          <SectionHeading eyebrow="Coleções" title="Explore por categoria." />
+          <div className="mt-10">
+            <CategoryGrid />
+          </div>
+        </Container>
+      </section>
+
+      <FeaturedProducts />
+      <NewProducts />
+      <AboutSection />
+      <TrustSection />
+      <InstagramSection />
+      <CtaSection />
+    </>
   );
 }
