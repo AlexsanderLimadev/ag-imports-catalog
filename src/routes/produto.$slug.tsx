@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Container } from "@/components/ui/Container";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductInfo } from "@/components/product/ProductInfo";
+import { RelatedProducts } from "@/components/product/RelatedProducts";
 import { getProductBySlug } from "@/data/products";
 import { getCategoryBySlug } from "@/data/categories";
 import { STORE_NAME } from "@/lib/constants";
