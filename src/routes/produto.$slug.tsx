@@ -96,6 +96,8 @@ function ProductPage() {
         <ProductGallery product={product} />
         <ProductInfo product={product} category={category?.name} />
       </div>
+
+      <RelatedProducts product={product} />
     </Container>
   );
 }
