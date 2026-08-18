@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Hero } from "@/components/hero/Hero";
+import { ScrollExpandHero } from "@/components/hero/ScrollExpandHero";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
 import { CategoryGrid } from "@/components/categories/CategoryGrid";
+import { FeaturedEditorial } from "@/components/sections/FeaturedEditorial";
 import { FeaturedProducts } from "@/components/sections/FeaturedProducts";
 import { NewProducts } from "@/components/sections/NewProducts";
 import { AboutSection } from "@/components/sections/AboutSection";
@@ -24,6 +26,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
@@ -44,17 +47,20 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <Hero />
+      <ScrollExpandHero />
 
       <section className="py-20 md:py-32">
         <Container>
-          <SectionHeading eyebrow="Coleções" title="Explore por categoria." />
-          <div className="mt-10">
+          <Reveal>
+            <SectionHeading eyebrow="Coleções" title="Explore por categoria." />
+          </Reveal>
+          <Reveal delay={0.08} className="mt-10">
             <CategoryGrid />
-          </div>
+          </Reveal>
         </Container>
       </section>
 
+      <FeaturedEditorial />
       <FeaturedProducts />
       <NewProducts />
       <AboutSection />
