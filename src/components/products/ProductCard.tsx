@@ -5,18 +5,28 @@ import { formatPrice } from "@/lib/format";
 import type { Product } from "@/data/products";
 
 export function ProductCard({ product, priority }: { product: Product; priority?: boolean }) {
+  const hoverImage = product.images[1];
+
   return (
     <Link
       to="/produto/$slug"
       params={{ slug: product.slug }}
-      className="group block overflow-hidden rounded-xl border border-border bg-background-2 transition-colors duration-300 hover:border-foreground/25"
+      className="group block overflow-hidden rounded-xl border border-border bg-background-2 transition-all duration-300 hover:-translate-y-0.5 hover:border-foreground/25"
     >
       <div className="relative overflow-hidden bg-surface">
         <ProductImage
           product={product}
           priority={!!priority}
-          className="p-4 transition-transform duration-500 ease-out group-hover:scale-[1.03] sm:p-6"
+          className="p-4 transition-[transform,opacity] duration-500 ease-out group-hover:scale-[1.03] sm:p-6"
         />
+
+        {hoverImage ? (
+          <ProductImage
+            product={product}
+            src={hoverImage}
+            className="absolute inset-0 p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100 sm:p-6"
+          />
+        ) : null}
 
         <div className="absolute left-3 top-3 flex flex-wrap gap-2">
           {product.isNew ? <ProductBadge>Novo</ProductBadge> : null}
