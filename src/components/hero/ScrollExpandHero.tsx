@@ -27,11 +27,11 @@ export function ScrollExpandHero() {
   );
   const radius = useTransform(scrollYProgress, [0, 0.85], [14, 0]);
   const mediaScale = useTransform(scrollYProgress, [0, 0.85], [1.14, 1]);
-  const sideOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
+  const sideOpacity = useTransform(scrollYProgress, [0, 0.28], [1, 0]);
   const leftX = useTransform(scrollYProgress, [0, 0.5], ["0%", isMobile ? "-6%" : "-22%"]);
   const rightX = useTransform(scrollYProgress, [0, 0.5], ["0%", isMobile ? "6%" : "22%"]);
-  const overlayOpacity = useTransform(scrollYProgress, [0.55, 0.9], [0, 1]);
-  const veil = useTransform(scrollYProgress, [0.3, 0.9], [0, 0.55]);
+  const overlayOpacity = useTransform(scrollYProgress, [0.6, 0.92], [0, 1]);
+  const veil = useTransform(scrollYProgress, [0.3, 0.92], [0, 0.72]);
 
   if (reduceMotion) return <StaticHero />;
 
