@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ScrollExpandHero } from "@/components/hero/ScrollExpandHero";
+import { StoreExpansionHero } from "@/components/hero/StoreExpansionHero";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <ScrollExpandHero />
+      <StoreExpansionHero />
 
       <section className="py-20 md:py-32">
         <Container>
