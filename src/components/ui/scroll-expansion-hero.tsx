@@ -211,24 +211,6 @@ export function ScrollExpandMedia({
                   </div>
                 )}
 
-                <div className="relative z-10 mt-4 flex flex-col items-center gap-3 text-center transition-none">
-                  {date ? (
-                    <p
-                      className="label-xs text-muted-foreground"
-                      style={{ transform: `translateX(-${textTranslateX}vw)` }}
-                    >
-                      {date}
-                    </p>
-                  ) : null}
-                  {scrollToExpand ? (
-                    <p
-                      className="label-xs text-muted-foreground"
-                      style={{ transform: `translateX(${textTranslateX}vw)` }}
-                    >
-                      {scrollToExpand}
-                    </p>
-                  ) : null}
-                </div>
               </div>
 
               <div
@@ -249,6 +231,28 @@ export function ScrollExpandMedia({
                 >
                   {restOfTitle}
                 </motion.p>
+              </div>
+
+              <div className="relative z-10 mt-8 flex flex-col items-center gap-3 text-center transition-none">
+                {date ? (
+                  <p
+                    className="label-xs text-muted-foreground"
+                    style={{ transform: `translateX(-${textTranslateX}vw)` }}
+                  >
+                    {date}
+                  </p>
+                ) : null}
+                {scrollToExpand && !mediaFullyExpanded ? (
+                  <p
+                    className="label-xs flex items-center gap-3 text-muted-foreground"
+                    style={{ transform: `translateX(${textTranslateX}vw)` }}
+                  >
+                    {scrollToExpand}
+                    <span aria-hidden="true" className="animate-bounce">
+                      ↓
+                    </span>
+                  </p>
+                ) : null}
               </div>
             </div>
 
