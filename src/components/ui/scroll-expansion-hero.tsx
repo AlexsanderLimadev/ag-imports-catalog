@@ -236,7 +236,7 @@ export function ScrollExpandMedia({
               <div className="relative z-10 mt-8 flex flex-col items-center gap-3 text-center transition-none">
                 {date ? (
                   <p
-                    className="label-xs text-muted-foreground"
+                    className="label-xs text-foreground/85"
                     style={{ transform: `translateX(-${textTranslateX}vw)` }}
                   >
                     {date}
@@ -244,7 +244,7 @@ export function ScrollExpandMedia({
                 ) : null}
                 {scrollToExpand && !mediaFullyExpanded ? (
                   <p
-                    className="label-xs flex items-center gap-3 text-muted-foreground"
+                    className="label-xs flex items-center gap-3 text-foreground/85"
                     style={{ transform: `translateX(${textTranslateX}vw)` }}
                   >
                     {scrollToExpand}
