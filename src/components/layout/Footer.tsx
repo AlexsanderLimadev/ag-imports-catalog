@@ -2,13 +2,18 @@ import { Link } from "@tanstack/react-router";
 import { Container } from "@/components/ui/Container";
 import { INSTAGRAM_URL, NAV_LINKS, STORE_NAME } from "@/lib/constants";
 import { GENERAL_WHATSAPP_URL } from "@/lib/whatsapp";
+import logoAsset from "@/assets/ag-imports-logo.png.asset.json";
 
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-border">
       <Container className="grid gap-12 py-16 md:grid-cols-[minmax(0,1fr)_auto]">
         <div className="min-w-0">
-          <p className="label-xs tracking-[0.22em]">AG Imports</p>
+          <img
+            src={logoAsset.url}
+            alt="AG Imports"
+            className="h-12 w-auto brightness-0 invert"
+          />
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
             Produtos selecionados.
             <br />
