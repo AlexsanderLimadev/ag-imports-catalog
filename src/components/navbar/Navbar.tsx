@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { INSTAGRAM_URL, NAV_LINKS } from "@/lib/constants";
 import { GENERAL_WHATSAPP_URL } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
+import logoAsset from "@/assets/ag-imports-logo.png.asset.json";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,8 +34,12 @@ export function Navbar() {
       )}
     >
       <Container className="flex h-16 items-center justify-between gap-4">
-        <Link to="/" className="label-xs shrink-0 tracking-[0.22em]">
-          AG Imports
+        <Link to="/" className="flex shrink-0 items-center gap-2" aria-label="AG Imports — início">
+          <img
+            src={logoAsset.url}
+            alt="AG Imports"
+            className="h-9 w-auto brightness-0 invert"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
